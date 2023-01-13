@@ -63,6 +63,7 @@ void loop() {
   acenderTodos();
   delay(1000);
   apagarTodos();
+  delay(50);
 
   int numero = random(1, 7);
   
@@ -77,9 +78,9 @@ void loop() {
     digitalWrite(a2, HIGH);
   }
   else if (numero == 3) {
-    digitalWrite(v1, HIGH);
-    digitalWrite(v3, HIGH);
-    digitalWrite(a2, HIGH);
+    digitalWrite(v2, HIGH);
+    digitalWrite(a1, HIGH);
+    digitalWrite(a3, HIGH);
   }
   else if (numero == 4) {
     digitalWrite(v1, HIGH);
@@ -89,14 +90,23 @@ void loop() {
   }
   else if (numero == 5) {
     acenderTodos();
-    digitalWrite(v2, LOW);
+    digitalWrite(a2, LOW);
   }
   else if (numero == 6) {
     acenderTodos();
   }
   else {
-    Serial.println("ERRO!");
-    apagarTodos();
+    while (true) {
+      Serial.println("ERRO!");
+      digitalWrite(v1, HIGH);
+      digitalWrite(v2, HIGH);
+      digitalWrite(v3, HIGH);
+      delay(1000);
+      digitalWrite(v1, LOW);
+      digitalWrite(v2, LOW);
+      digitalWrite(v3, LOW);
+      delay(1000);
+    }
   }
 
   delay(10000);
