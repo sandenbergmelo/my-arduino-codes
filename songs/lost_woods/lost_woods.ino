@@ -1,6 +1,6 @@
 //Initialize buzzer, button
-const int buzzerPin = 4;
-const int buttonPin = 3;
+const int buzzerPin = 12;
+const int buttonPin = 13;
 
 // Length must equal the total number of notes and spaces 
 const int songLength = 88;

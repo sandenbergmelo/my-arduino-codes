@@ -1,5 +1,5 @@
-const int speakPin = 4;
-const int buttonPin = 3;
+const int speakPin = 12;
+const int buttonPin = 13;
 const int Qnote = 441.1;
 const int Hnote = Qnote*2;
 const int Wnote = Qnote*4;
