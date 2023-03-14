@@ -1,5 +1,5 @@
-const int led = 8;
-const int sensor = 9;
+const int led = 9;
+const int sensor = 8;
 
 int state = LOW;
 
