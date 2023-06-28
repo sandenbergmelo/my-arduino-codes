@@ -1,4 +1,4 @@
-const int pinSW = 2;
+const int pinSW = A0; // Ligado em uma porta analógica para que todas as conexões ficarem de um lado só
 const int pinVRx = A1;
 const int pinVRy = A2;
 
@@ -11,14 +11,30 @@ void setup() {
 void loop() {
   int valorVRx = analogRead(pinVRx);
   int valorVRy = analogRead(pinVRy);
-  int pressedSW = digitalRead(pinSW);
+  int pressedSW = !digitalRead(pinSW);
 
-  Serial.print("Valor VRx: ");
-  Serial.println(valorVRx);
-  Serial.print("Valor VRy: ");
-  Serial.println(valorVRy);
-  Serial.print("Status SW: ");
-  Serial.println(pressedSW);
+  if (pressedSW) {
+    Serial.println("PRESSIONADO!");
+    delay(500);
+  }
 
-  delay(300);
+  if (valorVRx == 0) {
+    Serial.println("CIMA!");
+    delay(500);
+  }
+
+  if (valorVRx == 1023) {
+    Serial.println("BAIXO!");
+    delay(500);
+  }
+
+  if (valorVRy == 0) {
+    Serial.println("DIREITA!");
+    delay(500);
+  }
+
+  if (valorVRy == 1023) {
+    Serial.println("ESQUERDA!");
+    delay(500);
+  }
 }
