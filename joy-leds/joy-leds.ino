@@ -1,5 +1,5 @@
 // Joystick
-const int pinSW = A0; // Ligado em uma porta analógica para que todas as conexões ficarem de um lado só
+const int pinSW = A0; // Ligado em uma porta analógica para que todas as conexões fiquem de um lado só
 const int pinVRx = A1;
 const int pinVRy = A2;
 
