@@ -5,16 +5,16 @@
 const int RST_PIN = 9;
 const int SDA_PIN = 10;
 
-const int led_cartao = A1;
+const int led_cartao_branco = A1;
 const int led_chaveiro = 4;
 
-const String cartao_uid = "f3 3b 21 0f";
+const String cartao_branco_uid = "f3 3b 21 0f";
 const String chaveiro_uid = "a3 3e e5 9f";
 
 MFRC522 rfid(SDA_PIN, RST_PIN);
 
 void setup() {
-  pinMode(led_cartao, OUTPUT);
+  pinMode(led_cartao_branco, OUTPUT);
   pinMode(led_chaveiro, OUTPUT);
 
   Serial.begin(9600);
@@ -49,12 +49,17 @@ void loop() {
 
   if (read_uid == chaveiro_uid) {
     Serial.println("Chaveiro");
-    digitalWrite(led_cartao, LOW);
+    digitalWrite(led_cartao_branco, LOW);
     digitalWrite(led_chaveiro, HIGH);
   }
-  if (read_uid == cartao_uid) {
-    Serial.println("Cartão");
+  else if (read_uid == cartao_branco_uid) {
+    Serial.println("Cartão Branco");
     digitalWrite(led_chaveiro, LOW);
-    digitalWrite(led_cartao, HIGH);
+    digitalWrite(led_cartao_branco, HIGH);
+  }
+  else {
+    Serial.println("Desconhecido");
+    digitalWrite(led_chaveiro, LOW);
+    digitalWrite(led_cartao_branco, LOW);
   }
 }
